@@ -1,7 +1,10 @@
 <template>
-  <Tutorial/>
+  <div>
+    <AppHeader />
+    <Card />
+  </div>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
