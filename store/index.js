@@ -1,13 +1,6 @@
 export const state = () => ({
-    playerOne: [
-
-    ],
-    playerTwo: [
-
-    ],
-    compareTwoCards: [
-
-    ],
+    stars: 3,
+    numMoves: 0,
     card: [
         {
             id: 1,
@@ -565,7 +558,13 @@ export const getters = {
 export const mutations = {
     compareCards(state, cards) {
         state.compareTwoCards.push(cards)
-
+    },
+    flipCard(state, cards) {
+        if (state.card.open) {
+            return cards.open
+        } else {
+            cards.open = true;
+        }
     }
 }
 

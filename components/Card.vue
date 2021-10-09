@@ -1,7 +1,13 @@
 <template>
   <ul class="backgroundBlue px-16 py-16 grid row-auto gap-10 grid-cols-9">
-    <li class="rounded-lg shadow-lg" v-for="cards in card" :key="cards.id">
-      <img class="card" :src="cards.frontImage" alt="" />
+    <li
+      class="rounded-lg shadow-lg"
+      v-for="cards in card"
+      :key="cards.id"
+      v-on:click="flipCard(cards)"
+    >
+      <img v-if="cards.open" class="card" :src="cards.frontImage" alt="" />
+      <img v-else class="card" :src="cards.backImage" alt="" />
     </li>
   </ul>
 </template>
@@ -11,8 +17,14 @@ import { mapGetters } from "vuex";
 export default {
   computed: mapGetters({
     card: "card",
+    stars: "stars",
+    numMoves: "numMoves",
   }),
-  methods: {},
+  methods: {
+    flipCard(cards) {
+      this.$store.commit("flipCard", cards);
+    },
+  },
 };
 </script>
 
