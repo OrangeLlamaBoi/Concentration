@@ -5,7 +5,7 @@ export const state = () => ({
     playerTwo: [
 
     ],
-    test: [
+    compareTwoCards: [
 
     ],
     card: [
@@ -15,8 +15,9 @@ export const state = () => ({
             number: "two",
             frontImage: require("~/assets/2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
-
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 2,
@@ -24,7 +25,9 @@ export const state = () => ({
             number: "two",
             frontImage: require("~/assets/2-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 3,
@@ -32,7 +35,9 @@ export const state = () => ({
             number: "two",
             frontImage: require("~/assets/2-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 4,
@@ -40,14 +45,18 @@ export const state = () => ({
             number: "two",
             frontImage: require("~/assets/2-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         }, {
             id: 5,
             title: "club",
             number: "three",
             frontImage: require("~/assets/3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 6,
@@ -55,7 +64,9 @@ export const state = () => ({
             number: "three",
             frontImage: require("~/assets/3-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 7,
@@ -63,7 +74,9 @@ export const state = () => ({
             number: "three",
             frontImage: require("~/assets/3-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 8,
@@ -71,7 +84,9 @@ export const state = () => ({
             number: "three",
             frontImage: require("~/assets/3-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 9,
@@ -79,7 +94,9 @@ export const state = () => ({
             number: "four",
             frontImage: require("~/assets/4.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 10,
@@ -87,7 +104,9 @@ export const state = () => ({
             number: "four",
             frontImage: require("~/assets/4-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 11,
@@ -95,7 +114,9 @@ export const state = () => ({
             number: "four",
             frontImage: require("~/assets/4-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 12,
@@ -103,7 +124,9 @@ export const state = () => ({
             number: "four",
             frontImage: require("~/assets/4-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 13,
@@ -111,7 +134,9 @@ export const state = () => ({
             number: "five",
             frontImage: require("~/assets/5.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 14,
@@ -119,7 +144,9 @@ export const state = () => ({
             number: "five",
             frontImage: require("~/assets/5-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 15,
@@ -127,7 +154,9 @@ export const state = () => ({
             number: "five",
             frontImage: require("~/assets/5-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 16,
@@ -135,7 +164,9 @@ export const state = () => ({
             number: "five",
             frontImage: require("~/assets/5-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 17,
@@ -143,7 +174,9 @@ export const state = () => ({
             number: "six",
             frontImage: require("~/assets/6.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 18,
@@ -151,7 +184,9 @@ export const state = () => ({
             number: "six",
             frontImage: require("~/assets/6-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 19,
@@ -159,7 +194,9 @@ export const state = () => ({
             number: "six",
             frontImage: require("~/assets/6-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 20,
@@ -167,7 +204,9 @@ export const state = () => ({
             number: "six",
             frontImage: require("~/assets/6-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 21,
@@ -175,7 +214,9 @@ export const state = () => ({
             number: "seven",
             frontImage: require("~/assets/7.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 22,
@@ -183,7 +224,9 @@ export const state = () => ({
             number: "seven",
             frontImage: require("~/assets/7-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 23,
@@ -191,7 +234,9 @@ export const state = () => ({
             number: "seven",
             frontImage: require("~/assets/7-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 24,
@@ -199,7 +244,9 @@ export const state = () => ({
             number: "seven",
             frontImage: require("~/assets/7-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 25,
@@ -207,7 +254,9 @@ export const state = () => ({
             number: "eight",
             frontImage: require("~/assets/8.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 26,
@@ -215,7 +264,9 @@ export const state = () => ({
             number: "eight",
             frontImage: require("~/assets/8-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 27,
@@ -223,7 +274,9 @@ export const state = () => ({
             number: "eight",
             frontImage: require("~/assets/8-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 28,
@@ -231,7 +284,9 @@ export const state = () => ({
             number: "eight",
             frontImage: require("~/assets/8-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 29,
@@ -239,7 +294,9 @@ export const state = () => ({
             number: "nine",
             frontImage: require("~/assets/9.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 30,
@@ -248,7 +305,9 @@ export const state = () => ({
             frontImage: require("~/assets/9-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
 
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 31,
@@ -256,7 +315,9 @@ export const state = () => ({
             number: "nine",
             frontImage: require("~/assets/9-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 32,
@@ -264,7 +325,9 @@ export const state = () => ({
             number: "nine",
             frontImage: require("~/assets/9-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 33,
@@ -272,7 +335,9 @@ export const state = () => ({
             number: "ten",
             frontImage: require("~/assets/10.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 34,
@@ -280,7 +345,9 @@ export const state = () => ({
             number: "ten",
             frontImage: require("~/assets/10-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 35,
@@ -288,7 +355,9 @@ export const state = () => ({
             number: "ten",
             frontImage: require("~/assets/10-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 36,
@@ -296,7 +365,9 @@ export const state = () => ({
             number: "ten",
             frontImage: require("~/assets/10-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 37,
@@ -304,7 +375,9 @@ export const state = () => ({
             number: "ace",
             frontImage: require("~/assets/A.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 38,
@@ -312,7 +385,9 @@ export const state = () => ({
             number: "ace",
             frontImage: require("~/assets/A-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 39,
@@ -320,7 +395,9 @@ export const state = () => ({
             number: "ace",
             frontImage: require("~/assets/A-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 40,
@@ -328,7 +405,9 @@ export const state = () => ({
             number: "ace",
             frontImage: require("~/assets/A-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 41,
@@ -336,7 +415,9 @@ export const state = () => ({
             number: "jack",
             frontImage: require("~/assets/J.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 42,
@@ -344,7 +425,9 @@ export const state = () => ({
             number: "jack",
             frontImage: require("~/assets/J-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 43,
@@ -352,7 +435,9 @@ export const state = () => ({
             number: "jack",
             frontImage: require("~/assets/J-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 44,
@@ -360,7 +445,9 @@ export const state = () => ({
             number: "jack",
             frontImage: require("~/assets/J-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 45,
@@ -368,7 +455,9 @@ export const state = () => ({
             number: "king",
             frontImage: require("~/assets/K.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 46,
@@ -376,7 +465,9 @@ export const state = () => ({
             number: "king",
             frontImage: require("~/assets/K-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 47,
@@ -384,7 +475,9 @@ export const state = () => ({
             number: "king",
             frontImage: require("~/assets/K-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 48,
@@ -392,7 +485,9 @@ export const state = () => ({
             number: "king",
             frontImage: require("~/assets/K-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 49,
@@ -400,7 +495,9 @@ export const state = () => ({
             number: "queen",
             frontImage: require("~/assets/Q.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 50,
@@ -408,7 +505,9 @@ export const state = () => ({
             number: "queen",
             frontImage: require("~/assets/Q-1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 51,
@@ -416,7 +515,9 @@ export const state = () => ({
             number: "queen",
             frontImage: require("~/assets/Q-2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 52,
@@ -424,7 +525,9 @@ export const state = () => ({
             number: "queen",
             frontImage: require("~/assets/Q-3.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
         {
             id: 53,
@@ -432,7 +535,9 @@ export const state = () => ({
             number: "joker",
             frontImage: require("~/assets/Joker_1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red"
+            colour: "red",
+            open: false,
+            matched: false
         },
         {
             id: 54,
@@ -440,19 +545,28 @@ export const state = () => ({
             number: "joker",
             frontImage: require("~/assets/Joker_2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black"
+            colour: "black",
+            open: false,
+            matched: false
         },
     ]
 });
 
 export const getters = {
-    card() {
-        return this.$store.state.card;
+    card(state) {
+        return state.card
+            .map(a => [Math.random(), a])
+            .sort((a, b) => a[0] - b[0])
+            .map(a => a[1]);
     }
+
 }
 
 export const mutations = {
+    compareCards(state, cards) {
+        state.compareTwoCards.push(cards)
 
+    }
 }
 
 export const actions = {

@@ -1,22 +1,18 @@
 <template>
   <ul class="backgroundBlue px-16 py-16 grid row-auto gap-10 grid-cols-9">
     <li class="rounded-lg shadow-lg" v-for="cards in card" :key="cards.id">
-      <img
-        class="rounded-md w-screen object-cover max-h-60"
-        :src="cards.frontImage"
-        alt=""
-      />
+      <img class="card" :src="cards.frontImage" alt="" />
     </li>
   </ul>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  computed: {
-    card() {
-      return this.$store.state.card;
-    },
-  },
+  computed: mapGetters({
+    card: "card",
+  }),
+  methods: {},
 };
 </script>
 
@@ -33,11 +29,16 @@ ul {
     rgba(255, 255, 255, 0.1) 102.4%
   );
   border-radius: 8px;
+  position: relative;
 }
 
 li {
   position: static;
   width: 72px;
   height: 112px;
+}
+
+.card {
+  position: absolute;
 }
 </style>
