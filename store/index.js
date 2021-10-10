@@ -14,7 +14,6 @@ export const state = () => ({
         }
     ],
     compareTwoCards: [],
-    points: 0,
     card: [
         {
             id: 1,
@@ -579,28 +578,55 @@ export const mutations = {
         } else {
             cards.open = true;
         }
-        if (state.compareTwoCards.length === 2) {
-            if (state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
-                state.compareTwoCards[0].number === state.compareTwoCards[1].number) {
-                const findIndexOne = state.card.findIndex(i => i.id === state.compareTwoCards[0].id);
-                const findIndexTwo = state.card.findIndex(i => i.id === state.compareTwoCards[1].id);
-                state.card.splice(findIndexTwo, 1);
-                state.card.splice(findIndexOne, 1);
-                state.players[0].points += 1
-                state.compareTwoCards.length = 0;
-            }
-            else {
-                state.compareTwoCards.length = 0;
+        if (state.players[0].active === true) {
+            if (state.compareTwoCards.length === 2) {
+                if (state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
+                    state.compareTwoCards[0].number === state.compareTwoCards[1].number) {
+                    const findIndexOne = state.card.findIndex(i => i.id === state.compareTwoCards[0].id);
+                    const findIndexTwo = state.card.findIndex(i => i.id === state.compareTwoCards[1].id);
+                    state.card.splice(findIndexTwo, 1);
+                    state.card.splice(findIndexOne, 1);
+                    state.players[0].points += 1
+                    state.compareTwoCards.length = 0;
+                }
+                else {
+                    state.compareTwoCards.length = 0;
 
-                for (let i = 0; i < state.card.length; i++) {
-                    if (state.card[i].open = true) {
-                        state.card[i].open = false;
-
+                    for (let i = 0; i < state.card.length; i++) {
+                        if (state.card[i].open = true) {
+                            state.card[i].open = false;
+                            state.players[0].active = false;
+                            state.players[1].active = true;
+                        }
                     }
                 }
+            } else {
+                console.log("nothing")
             }
-        } else {
-            console.log("nothing")
+        } else if (state.players[1].active === true) {
+            if (state.compareTwoCards.length === 2) {
+                if (state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
+                    state.compareTwoCards[0].number === state.compareTwoCards[1].number) {
+                    const findIndexOne = state.card.findIndex(i => i.id === state.compareTwoCards[0].id);
+                    const findIndexTwo = state.card.findIndex(i => i.id === state.compareTwoCards[1].id);
+                    state.card.splice(findIndexTwo, 1);
+                    state.card.splice(findIndexOne, 1);
+                    state.players[1].points += 1
+                    state.compareTwoCards.length = 0;
+                }
+                else {
+                    state.compareTwoCards.length = 0;
+                    for (let i = 0; i < state.card.length; i++) {
+                        if (state.card[i].open = true) {
+                            state.card[i].open = false;
+                            state.players[1].active = false;
+                            state.players[0].active = true;
+                        }
+                    }
+                }
+            } else {
+                console.log("nothing")
+            }
         }
     },
     CHANGE_PLAYER_ONE_NAME(state, e) {
@@ -618,6 +644,9 @@ export const mutations = {
             console.log(state.players[0].name)
             console.log(state.players[1].name)
         }
+    },
+    CHECK_WHO_WINS() {
+
     }
 }
 
