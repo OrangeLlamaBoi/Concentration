@@ -1,5 +1,8 @@
 <template>
   <ul class="backgroundBlue px-16 py-16 grid row-auto gap-10 grid-cols-9">
+    {{
+      checkTotal
+    }}
     <li
       class="rounded-lg shadow-lg"
       v-for="cards in card"
@@ -17,12 +20,13 @@ import { mapGetters } from "vuex";
 export default {
   computed: mapGetters({
     card: "card",
-    stars: "stars",
-    numMoves: "numMoves",
+    compareCards: "compareCards",
+    checkTotal: "checkTotal",
   }),
+
   methods: {
     flipCard(cards) {
-      this.$store.commit("flipCard", cards);
+      this.$store.dispatch("flipCard", cards);
     },
   },
 };

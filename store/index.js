@@ -1,6 +1,5 @@
 export const state = () => ({
-    stars: 3,
-    numMoves: 0,
+    compareTwoCards: [],
     card: [
         {
             id: 1,
@@ -548,26 +547,67 @@ export const state = () => ({
 export const getters = {
     card(state) {
         return state.card
-            .map(a => [Math.random(), a])
-            .sort((a, b) => a[0] - b[0])
-            .map(a => a[1]);
+        // .map(a => [Math.random(), a])
+        // .sort((a, b) => a[0] - b[0])
+        // .map(a => a[1]);
+    },
+
+
+
+    // &&
+    // state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
+    // state.compareTwoCards[0].number === state.compareTwoCards[1].number
+    checkTotal(state, cards) {
+        if (state.compareTwoCards.length === 2) {
+            console.log("two items are in the array")
+
+            if (state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
+                state.compareTwoCards[0].number === state.compareTwoCards[1].number) {
+                console.log("values are equal and will be removed and then array will be refreshed")
+            } else {
+                cards.open = false;
+                state.compareTwoCards.length = 0;
+                console.log("array has been refreshed")
+
+            }
+        }
+        else {
+            // console.table(state.compareTwoCards);
+            console.log("item added")
+        }
     }
+
+    // compareTwoCards(state) {
+    //     if (state.compareTwoCards.length === 2) {
+
+    //         if (state.compareTwoCards.number[0] === state.compareTwoCards.number[1] && state.compareTwoCards.colour[0] === state.compareTwoCards.colour[1]) {
+    //             console.log("matched");
+    //         }
+    //         else {
+    //             console.log("nope")
+    //         }
+    //     }
+    // },
 
 }
 
 export const mutations = {
-    compareCards(state, cards) {
-        state.compareTwoCards.push(cards)
-    },
     flipCard(state, cards) {
+        state.compareTwoCards.push(cards)
         if (state.card.open) {
-            return cards.open
+            return;
         } else {
             cards.open = true;
         }
-    }
+    },
+
+
 }
 
 export const actions = {
+    flipCard({ commit }, cards) {
+        commit("flipCard", cards)
+    },
+
 
 }
