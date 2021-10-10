@@ -1,31 +1,83 @@
 <template>
-  <div class="background">
+  <div>
     <h1>Are you ready to play?</h1>
-    <div class="playerContainer">
-      <div>
+    <div>
+      <div class="playerOne">
         <img src="../assets/Players/playerOne.png" alt="player1" />
-        <input type="text" placeholder="Name of Player 1" />
+        <input
+          @change="changePlayerOneName"
+          type="text"
+          placeholder="Name of Player 1"
+        />
       </div>
-      <div>
+      <div class="playerTwo">
         <img src="../assets/Players/playerTwo.png" alt="player2" />
-        <input type="text" placeholder="Name of Player 2" />
+        <input
+          @change="changePlayerTwoName"
+          type="text"
+          placeholder="Name of Player 2"
+        />
       </div>
     </div>
-    <button>Let's Play</button>
+    <button v-on:click="getUserNames()">Let's Play</button>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: mapGetters({
+    players: "players",
+  }),
+
+  methods: {
+    changePlayerOneName(e) {
+      this.$store.commit("CHANGE_PLAYER_ONE_NAME", e);
+    },
+    changePlayerTwoName(i) {
+      this.$store.commit("CHANGE_PLAYER_TWO_NAME", i);
+    },
+    getUserNames() {
+      this.$store.commit("GETUSERNAMES");
+    },
+  },
+};
 </script>
 
 <style  scoped>
+div {
+  position: relative;
+}
+
+.playerOne {
+  position: absolute;
+  width: 374px;
+  height: 319px;
+  top: 346px;
+  left: 317px;
+}
+
+.playerTwo {
+  position: absolute;
+  width: 374px;
+  height: 319px;
+  top: 346px;
+  left: 757px;
+}
+
+img {
+  width: 180px;
+  height: 222px;
+  margin-bottom: 49px;
+  margin-left: 97px;
+}
+
 h1 {
-  position: static;
+  position: absolute;
   width: 601px;
   height: 24px;
-  left: 106.5px;
-  top: 0px;
+  left: 423.5px;
+  top: 230px;
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
@@ -42,7 +94,7 @@ input {
   left: 0px;
   top: 0px;
   border-radius: 8px;
-  padding: 12px, 16px;
+  padding: 12px 16px;
   border: 1px solid #f1f5f9;
   background: #f1f5f9;
   font-family: Poppins;
@@ -55,11 +107,11 @@ input {
 }
 
 button {
-  position: static;
+  position: absolute;
   width: 220px;
   height: 64px;
-  left: 297px;
-  top: 527px;
+  left: 614px;
+  top: 754px;
   margin-top: 92px;
   background: #0ab169;
   border-radius: 8px;
@@ -71,19 +123,5 @@ button {
   letter-spacing: -0.02em;
   text-transform: capitalize;
   color: #ffffff;
-}
-
-.background {
-  background: #3e92ce;
-  height: 100vh;
-}
-
-.playerContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 814px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 </style>

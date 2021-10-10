@@ -1,4 +1,18 @@
 export const state = () => ({
+    players: [
+        {
+            id: 1,
+            points: 0,
+            active: true,
+            name: null,
+        },
+        {
+            id: 2,
+            points: 0,
+            active: false,
+            name: null
+        }
+    ],
     compareTwoCards: [],
     points: 0,
     card: [
@@ -552,6 +566,9 @@ export const getters = {
         // .sort((a, b) => a[0] - b[0])
         // .map(a => a[1]);
     },
+    players(state) {
+        return state.players;
+    },
 }
 
 export const mutations = {
@@ -569,7 +586,7 @@ export const mutations = {
                 const findIndexTwo = state.card.findIndex(i => i.id === state.compareTwoCards[1].id);
                 state.card.splice(findIndexTwo, 1);
                 state.card.splice(findIndexOne, 1);
-                state.points += 1
+                state.players[0].points += 1
                 state.compareTwoCards.length = 0;
             }
             else {
@@ -581,18 +598,31 @@ export const mutations = {
 
                     }
                 }
-
             }
         } else {
             console.log("nothing")
         }
     },
+    CHANGE_PLAYER_ONE_NAME(state, e) {
+        state.players[0].name = e.target.value
+    },
+    CHANGE_PLAYER_TWO_NAME(state, i) {
+        state.players[1].name = i.target.value
+    },
+    GETUSERNAMES(state) {
+        if (state.players[0].name != null && state.players[1].name != null) {
+            console.log("you're good");
+            this.$router.push('/PlayPage')
+        } else {
+            console.log("names are empty")
+            console.log(state.players[0].name)
+            console.log(state.players[1].name)
+        }
+    }
 }
 
 export const actions = {
     flipCard({ commit }, cards) {
         commit("FLIPCARD", cards)
     },
-
-
 }

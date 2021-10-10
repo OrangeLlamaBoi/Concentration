@@ -1,15 +1,12 @@
 <template>
-  <ul class="backgroundBlue px-16 py-16 grid row-auto gap-10 grid-cols-9">
-    <li
-      class="rounded-lg shadow-lg"
-      v-for="cards in card"
-      :key="cards.id"
-      v-on:click="flipCard(cards)"
-    >
-      <img v-if="cards.open" class="card" :src="cards.frontImage" alt="" />
-      <img v-else class="card" :src="cards.backImage" alt="" />
-    </li>
-  </ul>
+  <div>
+    <ul>
+      <li v-for="cards in card" :key="cards.id" v-on:click="flipCard(cards)">
+        <img v-if="cards.open" :src="cards.frontImage" alt="" />
+        <img v-else :src="cards.backImage" alt="" />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -29,11 +26,15 @@ export default {
 
 <style scoped>
 ul {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-gap: 24px 20px;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  padding: 26px 17px;
+  left: 303px;
+  top: 144px;
   height: 844px;
   width: 842px;
-  left: 252px;
-  top: 0px;
-  border-radius: 8px;
   background: linear-gradient(
     133.05deg,
     rgba(255, 255, 255, 0.6) 0.62%,
@@ -44,12 +45,7 @@ ul {
 }
 
 li {
-  position: static;
   width: 72px;
   height: 112px;
-}
-
-.card {
-  position: absolute;
 }
 </style>

@@ -16,48 +16,61 @@ div {
 }
 
 h2 {
+  position: absolute;
   width: 182px;
   height: 40px;
+  left: 629px;
+  margin-top: 46px;
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
   font-size: 40.187px;
   line-height: 40px;
   letter-spacing: 0.0882153px;
+  color: #ffffff;
 }
 
 .restartBtn {
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 30px;
-  letter-spacing: -0.02em;
-  text-align: left;
+  padding: 16px;
+  border-radius: 8px;
+  position: absolute;
   width: 170px;
   height: 62px;
-  text-transform: capitalize;
-  color: #ffffff;
+  right: 315px;
+  margin-top: 46px;
   background: #f4a236;
   border-radius: 8px;
-  padding: 16px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  color: #ffffff;
 }
 
 .exitBtn {
-  height: 62px;
-  width: 132px;
-  left: 0px;
-  top: 0px;
-  border-radius: 8px;
   padding: 16px;
+  border: 8px;
+  position: absolute;
+  width: 132px;
+  height: 62px;
+  right: 154px;
+  margin-top: 46px;
   background: #d4190c;
+  border-radius: 8px;
+  flex: none;
+  order: 0;
   font-family: Poppins;
-  font-size: 20px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 20px;
   line-height: 30px;
   letter-spacing: -0.02em;
-  text-align: left;
+  text-transform: capitalize;
+
+  /* Shades / 00 */
   color: #ffffff;
 }
 </style>

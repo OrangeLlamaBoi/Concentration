@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ReadyToPlay />
+    <PlayArea />
   </div>
 </template>
 
