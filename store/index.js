@@ -1,5 +1,6 @@
 export const state = () => ({
     compareTwoCards: [],
+    points: 0,
     card: [
         {
             id: 1,
@@ -527,7 +528,7 @@ export const state = () => ({
             number: "joker",
             frontImage: require("~/assets/Joker_1.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "red",
+            colour: "joker",
             open: false,
             matched: false
         },
@@ -537,7 +538,7 @@ export const state = () => ({
             number: "joker",
             frontImage: require("~/assets/Joker_2.jpg"),
             backImage: require("~/assets/Card_Back.jpg"),
-            colour: "black",
+            colour: "joker",
             open: false,
             matched: false
         },
@@ -551,62 +552,46 @@ export const getters = {
         // .sort((a, b) => a[0] - b[0])
         // .map(a => a[1]);
     },
-
-
-
-    // &&
-    // state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
-    // state.compareTwoCards[0].number === state.compareTwoCards[1].number
-    checkTotal(state, cards) {
-        if (state.compareTwoCards.length === 2) {
-            console.log("two items are in the array")
-
-            if (state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
-                state.compareTwoCards[0].number === state.compareTwoCards[1].number) {
-                console.log("values are equal and will be removed and then array will be refreshed")
-            } else {
-                cards.open = false;
-                state.compareTwoCards.length = 0;
-                console.log("array has been refreshed")
-
-            }
-        }
-        else {
-            // console.table(state.compareTwoCards);
-            console.log("item added")
-        }
-    }
-
-    // compareTwoCards(state) {
-    //     if (state.compareTwoCards.length === 2) {
-
-    //         if (state.compareTwoCards.number[0] === state.compareTwoCards.number[1] && state.compareTwoCards.colour[0] === state.compareTwoCards.colour[1]) {
-    //             console.log("matched");
-    //         }
-    //         else {
-    //             console.log("nope")
-    //         }
-    //     }
-    // },
-
 }
 
 export const mutations = {
-    flipCard(state, cards) {
+    FLIPCARD(state, cards) {
         state.compareTwoCards.push(cards)
         if (state.card.open) {
             return;
         } else {
             cards.open = true;
         }
+        if (state.compareTwoCards.length === 2) {
+            if (state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
+                state.compareTwoCards[0].number === state.compareTwoCards[1].number) {
+                const findIndexOne = state.card.findIndex(i => i.id === state.compareTwoCards[0].id);
+                const findIndexTwo = state.card.findIndex(i => i.id === state.compareTwoCards[1].id);
+                state.card.splice(findIndexTwo, 1);
+                state.card.splice(findIndexOne, 1);
+                state.points += 1
+                state.compareTwoCards.length = 0;
+            }
+            else {
+                state.compareTwoCards.length = 0;
+
+                for (let i = 0; i < state.card.length; i++) {
+                    if (state.card[i].open = true) {
+                        state.card[i].open = false;
+
+                    }
+                }
+
+            }
+        } else {
+            console.log("nothing")
+        }
     },
-
-
 }
 
 export const actions = {
     flipCard({ commit }, cards) {
-        commit("flipCard", cards)
+        commit("FLIPCARD", cards)
     },
 
 

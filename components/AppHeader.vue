@@ -11,6 +11,10 @@ export default {};
 </script>
 
 <style scoped>
+div {
+  position: relative;
+}
+
 h2 {
   width: 182px;
   height: 40px;
