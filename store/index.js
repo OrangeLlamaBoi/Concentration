@@ -565,9 +565,9 @@ export const state = () => ({
 export const getters = {
     card(state) {
         return state.card
-        // .map(a => [Math.random(), a])
-        // .sort((a, b) => a[0] - b[0])
-        // .map(a => a[1]);
+            .map(a => [Math.random(), a])
+            .sort((a, b) => a[0] - b[0])
+            .map(a => a[1]);
     },
     players(state) {
         return state.players;
