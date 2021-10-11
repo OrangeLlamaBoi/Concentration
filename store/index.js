@@ -5,15 +5,19 @@ export const state = () => ({
             points: 0,
             active: true,
             name: null,
+            img: require("~/assets/Players/playerOne.png")
         },
+
         {
             id: 2,
             points: 0,
             active: false,
-            name: null
+            name: null,
+            img: require("~/assets/Players/playerTwo.png")
         }
     ],
     compareTwoCards: [],
+    storeCards: [],
     card: [
         {
             id: 1,
@@ -572,12 +576,14 @@ export const getters = {
 
 export const mutations = {
     FLIPCARD(state, cards) {
-        state.compareTwoCards.push(cards)
+        state.compareTwoCards.push(cards);
+        state.storeCards.push(cards);
         if (state.card.open) {
             return;
         } else {
             cards.open = true;
         }
+
         if (state.players[0].active === true) {
             if (state.compareTwoCards.length === 2) {
                 if (state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
@@ -588,22 +594,23 @@ export const mutations = {
                     state.card.splice(findIndexOne, 1);
                     state.players[0].points += 1
                     state.compareTwoCards.length = 0;
+
                 }
                 else {
                     state.compareTwoCards.length = 0;
-
                     for (let i = 0; i < state.card.length; i++) {
                         if (state.card[i].open = true) {
                             state.card[i].open = false;
                             state.players[0].active = false;
                             state.players[1].active = true;
                         }
+
                     }
                 }
             } else {
-                console.log("nothing")
             }
         } else if (state.players[1].active === true) {
+
             if (state.compareTwoCards.length === 2) {
                 if (state.compareTwoCards[0].colour === state.compareTwoCards[1].colour &&
                     state.compareTwoCards[0].number === state.compareTwoCards[1].number) {
@@ -624,9 +631,8 @@ export const mutations = {
                         }
                     }
                 }
-            } else {
+            } else
                 console.log("nothing")
-            }
         }
     },
     CHANGE_PLAYER_ONE_NAME(state, e) {
@@ -645,8 +651,24 @@ export const mutations = {
             console.log(state.players[1].name)
         }
     },
-    CHECK_WHO_WINS() {
-
+    EXIT_GAME(state) {
+        state.players[0].active = true;
+        state.players[1].active = false;
+        state.players[0].name = null;
+        state.players[1].name = null;
+        state.players[0].points = 0;
+        state.players[1].points = 0;
+        this.$router.push('/');
+    },
+    RESTART_GAME(state) {
+        console.log("restart")
+        state.players[0].active = true;
+        state.players[1].active = false;
+        state.players[0].points = 0;
+        state.players[1].points = 0;
+    },
+    TO_THE_VICTOR() {
+        this.$router.push('/playerVictory')
     }
 }
 

@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <MatchGame />
+  </div>
 </template>
 
 <script>
@@ -7,4 +9,8 @@ export default {};
 </script>
 
 <style scoped>
+div {
+  height: 1440px;
+  width: 1024px;
+}
 </style>

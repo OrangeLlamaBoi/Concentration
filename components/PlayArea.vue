@@ -1,14 +1,19 @@
 <template>
   <div class="playCardContainer">
     <div class="playerOne">
-      <img class="playerImage" src="~/assets/Players/playerOne.png" alt="" />
+      <img class="playerImage" :src="players[0].img" alt="" />
       <p class="playerName">{{ players[0].name }}</p>
       <p class="playerScore">Score: {{ players[0].points }}</p>
     </div>
-    <Card class="cardPosition" />
+    <div v-if="this.$store.state.card.length === 0">
+      <MatchGame />
+    </div>
+    <div v-else>
+      <Card />
+    </div>
     <div class="playerTwo">
-      <img class="playerImage" src="~/assets/Players/playerTwo.png" alt="" />
-      <p class="playerName">{{ players[0].name }}</p>
+      <img class="playerImage" :src="players[1].img" alt="" />
+      <p class="playerName">{{ players[1].name }}</p>
       <p class="playerScore">Score: {{ players[1].points }}</p>
     </div>
   </div>
@@ -19,11 +24,18 @@ import { mapGetters } from "vuex";
 export default {
   computed: mapGetters({
     players: "players",
+    playerHasWon: "playerHasWon",
   }),
 };
 </script>
 
 <style scoped>
+.matched {
+  position: absolute;
+  left: 303px;
+  top: 144px;
+}
+
 .playCardContainer {
   position: relative;
 }

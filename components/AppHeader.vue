@@ -1,13 +1,22 @@
 <template>
   <div>
     <h2>Memory</h2>
-    <button class="restartBtn">Restart Game</button>
-    <button class="exitBtn">Exit Game</button>
+    <button v-on:click="restartGame()" class="restartBtn">Restart Game</button>
+    <button v-on:click="exitGame()" class="exitBtn">Exit Game</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    exitGame() {
+      this.$store.commit("EXIT_GAME");
+    },
+    restartGame() {
+      this.$store.commit("RESTART_GAME");
+    },
+  },
+};
 </script>
 
 <style scoped>

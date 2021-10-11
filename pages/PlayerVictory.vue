@@ -1,10 +1,18 @@
 <template>
-  <div></div>
+  <div>
+    <Victory />
+  </div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style scoped>
+<style  scoped>
+div {
+  position: relative;
+
+  height: 1440px;
+  width: 1024px;
+}
 </style>

@@ -14,6 +14,7 @@ import { mapGetters } from "vuex";
 export default {
   computed: mapGetters({
     card: "card",
+    playerHasWon: "playerHasWon",
   }),
 
   methods: {
