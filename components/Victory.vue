@@ -1,9 +1,15 @@
 <template>
   <div>
     <h2>Well Done!</h2>
-    <h1>Player X</h1>
+    <div v-if="players[0].points > players[1].points">
+      <h1>{{ players[0].name }}</h1>
+    </div>
+    <div v-else>
+      <h1>{{ players[1].name }}</h1>
+    </div>
     <img class="winnerImg" src="../assets/Players/winner.png" alt="" />
-    <ul>
+    <img class="trophyImg" src="../assets/Players/icon.png" alt="" />
+    <ul v-if="players[0].points > players[1].points">
       <li class="winnerContainer">
         <img class="winnerImage" :src="players[0].img" alt="" />
         <p class="winnerPlace">1st place</p>
@@ -15,6 +21,20 @@
         <p class="otherPlace">2st place</p>
         <p class="otherName">{{ players[1].name }}</p>
         <p class="otherScore">Score: {{ players[1].points }}</p>
+      </li>
+    </ul>
+    <ul v-else>
+      <li class="winnerContainer">
+        <img class="winnerImage" :src="players[1].img" alt="" />
+        <p class="winnerPlace">1st place</p>
+        <p class="winnerName">{{ players[1].name }}</p>
+        <p class="winnerScore">Score: {{ players[1].points }}</p>
+      </li>
+      <li class="otherContainer">
+        <img class="otherImage" :src="players[0].img" alt="" />
+        <p class="otherPlace">2st place</p>
+        <p class="otherName">{{ players[0].name }}</p>
+        <p class="otherScore">Score: {{ players[0].points }}</p>
       </li>
     </ul>
     <button v-on:click="exitGame()">Play Again</button>
@@ -36,6 +56,8 @@ export default {
 </script>
 
 <style  scoped>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
 div {
   position: relative;
 }
@@ -76,6 +98,13 @@ button {
   height: 72.17px;
   left: 40px;
   top: 13.5px;
+}
+
+.trophyImg {
+  position: absolute;
+
+  left: 374px;
+  top: 605px;
 }
 
 .winnerPlace {
